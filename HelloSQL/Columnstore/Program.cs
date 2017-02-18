@@ -14,7 +14,7 @@ class Program
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "localhost";   //  update me
             builder.UserID = "sa";              //  update me
-            builder.Password = "YourStrong!Passw0rd";      // update me
+            builder.Password = "<YourStrong!Passw0rd>";      // update me
             builder.InitialCatalog = "master";
 
             // Connect to SQL
@@ -27,11 +27,11 @@ class Program
                 // Create a sample database
                 Console.Write("Dropping and creating database 'SampleDB' ... ");
                 String sql = "DROP DATABASE IF EXISTS [SampleDB]; CREATE DATABASE [SampleDB]";
-                /*using (SqlCommand command = new SqlCommand(sql, connection))
+                using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.ExecuteNonQuery();
                     Console.WriteLine("Done.");
-                }*/
+                }
 
                 // Insert 5 million rows into the table 'Table_with_5M_rows'
                 Console.Write("Inserting 5 million rows into table 'Table_with_5M_rows'. This takes ~1 minute, please wait ... ");
@@ -74,12 +74,13 @@ class Program
                     + Math.Round(elapsedTimeWithoutIndex / elapsedTimeWithIndex) + "x!");
             }
             Console.WriteLine("All done. Press any key to finish...");
-            Console.ReadKey(true);
         }
         catch (Exception e)
         {
             Console.WriteLine(e.ToString());
         }
+
+        Console.ReadKey(true);
     }
 
     public static double SumPrice(SqlConnection connection)

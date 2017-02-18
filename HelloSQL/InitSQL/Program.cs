@@ -14,7 +14,7 @@ class Program
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = "localhost";   // update me
             builder.UserID = "sa";              // update me
-            builder.Password = "YourStrong!Passw0rd";      // update me
+            builder.Password = "<YourStrong!Passw0rd>";      // update me
             builder.InitialCatalog = "master";
 
             // Connect to SQL
